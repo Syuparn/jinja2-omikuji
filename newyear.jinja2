@@ -1,0 +1,83 @@
+{# images #}
+{%- set dai = [
+    "       OO",
+    "       OO",
+    "OOOOOOOOOOOOOO",
+    "      OOO",
+    "     OO OO",
+    "    OO   OO",
+    "  OO      OO",
+    "OO         OOO",
+] -%}
+{%- set chu = [
+    "      OO",
+    "      OO",
+    " OOOOOOOOOOOO",
+    " O    OO    O",
+    " O    OO    O",
+    "  OOOOOOOOOO",
+    "      OO",
+    "      OO",
+] -%}
+{%- set sho = [
+    "      OO",
+    "      OO",
+    "  OO  OO  OO",
+    "  OO  OO  OO",
+    "  OO  OO  OO",
+    " O    OO   OO",
+    "     OOO",
+    "      OO",
+] -%}
+{%- set kichi = [
+    "      OO",
+    " OOOOOOOOOOOO",
+    "      OO",
+    "  OOOOOOOOOO",
+    "",
+    "   OOOOOOOO",
+    "   O      O",
+    "   OOOOOOOO",
+] -%}
+{%- set kyo = [
+    " O          O",
+    " O  O   O   O",
+    " O   O O    O",
+    " O    O     O",
+    " O   O O    O",
+    " O O     O  O",
+    " OOOOOOOOOOOO",
+] -%}
+{%- set torii = [
+    "==============",
+    " |    []    |",
+    "==============",
+    " |          |",
+    " |          |",
+    " |          |",
+    "Happy New Year",
+] -%}
+{%- set space = [
+    "",
+] -%}
+
+{# fortune definition #}
+{%- set fortune = [
+    dai + space + kichi,
+    chu + space + kichi,
+    sho + space + kichi,
+    kyo,
+    dai + space + kyo,
+] -%}
+
+{# pick fortune #}
+{%- set index = range(0, (fortune | length)) | random -%}
+{%- set result = fortune[index] -%}
+{# print #}
+{%- for line in torii -%}
+{{ line + "\n" }}
+{%- endfor -%}
+{{ "\n" }}
+{%- for line in result -%}
+{{ line + "\n" }}
+{%- endfor -%}
